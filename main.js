@@ -13,64 +13,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const idCardAvoidance = document.getElementById('id-card-avoidance');
     const idCardDamage = document.getElementById('id-card-damage');
 
-    // Update the name on the ID card and logo when the input changes
 nameInput.addEventListener('input', () => {
     const nameValue = nameInput.value || '???';
-    idCardName.textContent = nameValue; // Update the ID card name
-    document.getElementById('logo-name').textContent = nameValue; // Update the logo name
+    idCardName.textContent = nameValue; 
+    document.getElementById('logo-name').textContent = nameValue; 
 });
 
 
-// Function to download the ID card as a PNG
 function downloadIDCard() {
     const idCard = document.getElementById('id-card');
 
     html2canvas(idCard).then(canvas => {
-        // Create a link element
         const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png'); // Convert canvas to data URL
-        link.download = 'id-card.png'; // Set the file name
+        link.href = canvas.toDataURL('image/png'); 
+        link.download = 'id-card.png'; 
 
-        // Programmatically click the link to trigger the download
         link.click();
     }).catch(error => {
         console.error('Error capturing the ID card:', error);
     });
 }
 
-// Add event listener to the download button
 document.getElementById('download-button').addEventListener('click', downloadIDCard);
-// Add event listener to the download button
 document.getElementById('download-button').addEventListener('click', downloadIDCard);
 
 
-    // Function to update the mugshot when a file is selected
 function updateMugshot() {
-    const file = document.getElementById('mugshot').files[0]; // Get the selected file
+    const file = document.getElementById('mugshot').files[0]; 
     const reader = new FileReader();
 
-    // When the file is read, set the image source
     reader.onload = function(event) {
         const mugshotImage = document.getElementById('id-card-mugshot');
-        mugshotImage.src = event.target.result; // Set the image source to the file's data URL
+        mugshotImage.src = event.target.result; 
     };
 
     if (file) {
-        reader.readAsDataURL(file); // Read the file as a data URL
+        reader.readAsDataURL(file); 
     }
 }
 
-// Update mugshot when a file is selected
 document.getElementById('mugshot').addEventListener('change', updateMugshot);
 
-    // Function to update energy, defense, and moves based on size input
     function updateStats() {
         const size = parseInt(sizeInput.value, 10);
         let baseDefense = 0;
         let avoidanceValue = 0;
 
         if (!isNaN(size)) {
-            // Determine energy and base defense based on size
             if (size >= 1 && size <= 3) {
                 idCardEnergy.textContent = 3;
                 baseDefense = 16;
@@ -103,7 +92,6 @@ document.getElementById('mugshot').addEventListener('change', updateMugshot);
                 baseDefense = 7;
             }
 
-            // Determine moves based on size
             if (size < 6) {
                 idCardMoves.textContent = '6 inches';
             } else if (size >= 7 && size <= 11) {
@@ -118,12 +106,10 @@ document.getElementById('mugshot').addEventListener('change', updateMugshot);
                 idCardMoves.textContent = '36 inches';
             }
 
-            // Update defense based on color selection
             const colorValue = parseInt(colorSelect.value, 10);
             const finalDefense = baseDefense + (isNaN(colorValue) ? 0 : colorValue);
             idCardDefense.textContent = finalDefense;
 
-            // Update avoidance based on color selection
             switch (colorSelect.value) {
                 case '-5': // Pink/Yellow
                     avoidanceValue = 8;
@@ -147,15 +133,13 @@ document.getElementById('mugshot').addEventListener('change', updateMugshot);
                     avoidanceValue = 14;
                     break;
                 default:
-                    avoidanceValue = 0; // Default value if no color is selected
+                    avoidanceValue = 0; 
             }
 
-            // Update the avoidance value in the ID card
             idCardAvoidance.textContent = avoidanceValue;
         }
     }
 
-    // Function to update the number of attacks based on limbs and mouth inputs
     function updateAttacks() {
         const limbs = parseInt(limbsInput.value, 10);
         const mouth = parseInt(mouthInput.value, 10);
@@ -163,21 +147,20 @@ document.getElementById('mugshot').addEventListener('change', updateMugshot);
         let attackValue = 0;
 
         if (!isNaN(limbs)) {
-            attackValue = limbs - 1; // Set attacks to limbs - 1
+            attackValue = limbs - 1; 
         }
 
         if (!isNaN(mouth)) {
             if (mouth === 1) {
-                attackValue -= 1; // If 1 mouth, reduce attacks by 1
+                attackValue -= 1; 
             } else if (mouth >= 2) {
-                attackValue += (mouth - 1); // Increase attacks by (mouth - 1)
+                attackValue += (mouth - 1); 
             }
         }
 
-        idCardAttacks.textContent = attackValue; // Update the attacks display
+        idCardAttacks.textContent = attackValue; 
     }
 
-    // Function to update damage based on bits input
 function updateDamage() {
     const bits = parseInt(bitsInput.value, 10);
     let damageValue = 0;
@@ -194,19 +177,13 @@ function updateDamage() {
         }
     }
 
-    idCardDamage.textContent = damageValue; // Update the damage display
+    idCardDamage.textContent = damageValue; 
 }
 
-    // Update stats when size input changes
     sizeInput.addEventListener('input', updateStats);
-
-    // Update defense when color selection changes
     colorSelect.addEventListener('change', updateStats);
-
-    // Update attacks when limbs or mouth input changes
     limbsInput.addEventListener('input', updateAttacks);
     mouthInput.addEventListener('input', updateAttacks);
-    // Update damage when bits input changes
     bitsInput.addEventListener('input', updateDamage);
 
 });

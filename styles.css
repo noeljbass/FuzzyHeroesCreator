@@ -130,18 +130,18 @@ body {
 
 @media (max-width: 600px) {
   #id-card {
-    display: block; /* Stack the id-card */
-    margin: 0 auto; /* Center the id-card */
-    margin-bottom: 20px; /* Add some space below the id-card */
+    display: block; 
+    margin: 0 auto; 
+    margin-bottom: 20px; 
   }
 
   #id-form {
-    display: block; /* Ensure id-form is also block */
-    width: 100%; /* Make id-form take full width */
+    display: block; 
+    width: 100%; 
   }
 
   .id-form__row--inline {
-    width: 100%; /* Make form rows take full width */
-    padding-right: 0; /* Remove right padding */
+    width: 100%; 
+    padding-right: 0; 
   }
 }
