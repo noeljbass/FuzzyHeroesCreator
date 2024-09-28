@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ID Card and Form">
+    <title>ID Card and Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="id-card">
+  <div class="id-card material-ui-shadow">
+
+    <!-- \\ mugshot -->
+    <div class="id-card__mugshot">
+      <img src="http://www.travelcontinuously.com/wp-content/uploads/2018/04/empty-avatar.png" id="id-card-mugshot">
+    </div>
+    <!-- // mugshot -->
+
+    <!-- \\ foundation logo -->
+<div class="id-card__logo logo">
+  <span class="logo__big" id="logo-name">Toy Name</span>
+</div>
+<!-- // foundation logo -->
+
+
+    <!-- \\ subject id -->
+    <div class="id-card__subject-id">
+
+    </div>
+    <!-- // subject id -->
+
+    <!-- \\ experiment banner -->
+    <div class="id-card__banner">
+      <span class="id-card__banner-text">Fuzzy Hero</span>
+    </div>
+    <!-- // experiment banner -->
+
+    <!-- \\ details -->
+    <div class="id-card__details">
+      <div class="id-card__detail">
+        <span class="id-card__detail-label">Name</span>
+        <span class="id-card__detail-value" id="id-card-name">???</span>
+      </div>
+      <div class="id-card__detail">
+        <span class="id-card__detail-label">Energy Points:</span>
+        <span class="id-card__detail-value" id="id-card-energy">???</span>
+      </div>
+      <div class="id-card__detail">
+        <span class="id-card__detail-label">Avoidance Roll:</span>
+        <span class="id-card__detail-value" id="id-card-avoidance">???</span>
+      </div>
+      <div class="id-card__detail">
+        <span class="id-card__detail-label">Damage Dice:</span>
+        <span class="id-card__detail-value" id="id-card-damage">???</span>
+      </div>
+    </div>
+    <!-- // details -->
+
+    <!-- \\ short details -->
+    <div class="id-card__details id-card__details--short">
+      <div class="id-card__detail">
+        <span class="id-card__detail-label">Defense:</span>
+        <span class="id-card__detail-value" id="id-card-defense">???</span>
+      </div>
+      <div class="id-card__detail">
+        <span class="id-card__detail-label"># of Attacks:</span>
+        <span class="id-card__detail-value" id="id-card-attacks">???</span>
+      </div>
+      <div class="id-card__detail">
+        <span class="id-card__detail-label">Movement</span>
+        <span class="id-card__detail-value" id="id-card-moves">???</span>
+      </div>
+    
+    </div>
+    <!-- // short details -->
+
+  </div>
+</div>
+
+<div id="id-form">
+  <div class="id-form">
+    <div class="id-form__row id-form__row--inline">
+      <div class="id-form__label">What's your Heroes name?</div>
+      <div class="id-form__input">
+        <input type="text" id="name" placeholder="Name">
+      </div>
+    </div>
+    <div class="id-form__row id-form__row--inline">
+      <div class="id-form__label">How Long is your hero in inches?</div>
+      <div class="id-form__input">
+        <input type="number" id="size" placeholder="???">
+      </div>
+    </div>
+    <div></div>
+    <div class="id-form__row id-form__row--inline">
+      <div class="id-form__label">What color is your Hero?</div>
+      <div class="id-form__input">
+        <select id="color">
+          <option value="-5">Pink/Yellow</option>
+          <option value="-4">White</option>
+          <option value="-3">Purple/Green</option>
+          <option value="-2">Blue/Gray</option>
+          <option value="-1">Orange/Red/Gold/Metallic</option>
+          <option value="0">Black/Brown</option>
+          <option value="1">Camo/Stripes/Spots</option>
+        </select>
+      </div>
+    </div>
+    <div class="id-form__row id-form__row--inline">
+      <div class="id-form__label">How many total arms, legs, tails, tentacles?</div>
+      <div class="id-form__input">
+        <input type="number" id="limbs" placeholder="???">
+      </div>
+    </div>
+    <div></div>
+    <div class="id-form__row id-form__row--inline"></div>
+      <div class="id-form__label">How many mouths?</div>
+      <div class="id-form__input">
+        <input type="number" id="mouth" placeholder="???">
+      </div>
+    </div>
+    <div class="id-form__row id-form__row--inline"></div>
+      <div class="id-form__label">How many teeth, claws, quills, or boney bits?</div>
+      <div class="id-form__input">
+        <input type="number" id="bits" placeholder="???">
+      </div>
+    
+    <div></div>
+    <div class="id-form__row id-form__row--inline"></div>
+      <div class="id-form__label">Hero Picture</div>
+      <div class="id-form__input">
+        <input type="file" id="mugshot" accept="image/*">
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<button id="download-button">Download</button>
+
+
+<script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
