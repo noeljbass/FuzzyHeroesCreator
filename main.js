@@ -92,7 +92,7 @@ document.getElementById('mugshot').addEventListener('change', updateMugshot);
                 baseDefense = 7;
             }
 
-            if (size < 6) {
+            if (size <= 6) {
                 idCardMoves.textContent = '6 inches';
             } else if (size >= 7 && size <= 11) {
                 idCardMoves.textContent = '12 inches';
@@ -185,5 +185,6 @@ function updateDamage() {
     limbsInput.addEventListener('input', updateAttacks);
     mouthInput.addEventListener('input', updateAttacks);
     bitsInput.addEventListener('input', updateDamage);
+
 
 });
